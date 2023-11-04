@@ -1,5 +1,3 @@
-# This code is a README.md template for a Django project. It includes sections for project description, installation instructions, usage, contributing, and license. The template is intended to be used as a starting point for creating a README.md file for a Django project.
-
 ## Project Description
 [Insert project description here]
 
