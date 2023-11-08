@@ -1,1 +1,1 @@
-SECRET_KEY = "-5jr%1v143m-fif^59o18+-*14548vd801ypop$ni@zv88@yv#"
+SECRET_KEY = "6au-p55xcjh9y(gt&f-znr#ctn$)1z+21pui_)5&011j$x)&^$"

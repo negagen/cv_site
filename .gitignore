@@ -135,3 +135,6 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+# You should change secrets on deployment
+curriculum_vitae/secrets.py
