@@ -1,0 +1,10 @@
+<!-- FILEPATH: /c:/Users/negag/Code/cv_site/account/templates/user_info.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>User Info</h1>
+    <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Username: {{ user.username }}</p>
+{% endblock %}
