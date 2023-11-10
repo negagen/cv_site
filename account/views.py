@@ -26,11 +26,17 @@ def user_info(request):
     return render(request, 'user_info.html', {'user': request.user})
 
 def register(request):
+    password1=request.POST['password1']
+    password2=request.POST['password2']
+
+    if password1 != password2:
+        return render(request, 'register.html', {'error': 'Passwords do not match'})
+
     if request.method == 'POST':
         # If user is submitting the form, create a new user
         user = User.objects.create_user(
             username=request.POST['username'],
-            password=request.POST['password'],
+            password=request.POST['password1'],
             email=request.POST['email'],
             first_name=request.POST['first_name'],
             last_name=request.POST['last_name'],
