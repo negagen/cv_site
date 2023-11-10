@@ -1,20 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 # Create your views here.
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         # If user is submitting the form, authenticate the user
         user = authenticate(
             username=request.POST['username'],
             password=request.POST['password'],
         )
-        
+
         if user is not None:
             # If user is authenticated, log the user in
             login(request, user)
-            return render(request, 'user_info.html', {'user': user})
+            return redirect('user_info')
         else:
             # If user is not authenticated, return error message
             return render(request, 'login.html', {'error': 'Invalid username or password'})
@@ -23,7 +23,7 @@ def login(request):
 def user_info(request):
     if not request.user.is_authenticated:
         # If user is not logged in, redirect to login page
-        return render(request, 'login.html')
+        return redirect('login')
     return render(request, 'user_info.html', {'user': request.user})
 
 def register(request):
@@ -46,10 +46,10 @@ def register(request):
             )
         except Exception as e:
             return render(request, 'register.html', {'error': e})
-        return render(request, 'login.html')
+        return redirect('login')
     return render(request, 'register.html')
 
-def logout(request):
+def logout_view(request):
     # Log out the user and redirect to login page
     logout(request)
-    return render(request, 'login.html')
+    return redirect('login')
