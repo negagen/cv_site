@@ -10,6 +10,7 @@ def login(request):
             username=request.POST['username'],
             password=request.POST['password'],
         )
+        
         if user is not None:
             # If user is authenticated, log the user in
             login(request, user)
